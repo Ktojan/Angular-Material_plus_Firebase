@@ -19,8 +19,7 @@
         </mat-tab>
         <div *ngIf="user.notes.length > 0">
           <mat-tab label="Notes">
-            <p>{{user.notes[0].date | date:'d LLLL yyyy'}}</p>
-            <p>{{user.notes[0].title}}</p>
+            <app-notes [notes]="user.notes"></app-notes>
           </mat-tab>
         </div>
       </mat-tab-group>
