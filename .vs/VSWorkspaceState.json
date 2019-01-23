@@ -4,12 +4,9 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\contactmanager",
-    "\\src\\app\\contactmanager\\components",
-    "\\src\\app\\contactmanager\\components\\main-content",
-    "\\src\\app\\contactmanager\\components\\sidenav",
-    "\\src\\app\\contactmanager\\components\\toolbar",
-    "\\src\\app\\demo"
+    "\\src\\app\\contactmanager\\components\\notes",
+    "\\src\\app\\contactmanager\\models"
   ],
-  "SelectedNode": "\\src\\app\\contactmanager\\contactmanager.module.ts",
+  "SelectedNode": "\\src\\app\\contactmanager\\models\\note.ts",
   "PreviewInSolutionExplorer": true
 }

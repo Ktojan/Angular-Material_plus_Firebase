@@ -9,7 +9,7 @@
       <mat-nav-list>
         <mat-list-item *ngFor="let user of users | async">
           <a matLine [routerLink]="['/contactmanager', user.id]">
-            <mat-icon>face</mat-icon>  <!--TODO while  adding this svgIcon="{{user.avatar}}"   have a problem with import httpclient requirement in console -->
+            <mat-icon>account_circle</mat-icon>  
             {{ user.name }}
           </a>
         </mat-list-item>
