@@ -12,16 +12,16 @@
     </mat-card-header>
     <mat-card-content>
       <mat-tab-group>
-        <mat-tab label="Biography">
-          <p>
-            {{user.bio}}
-          </p>
-        </mat-tab>
         <div *ngIf="user.notes.length > 0">
           <mat-tab label="Notes">
             <app-notes [notes]="user.notes"></app-notes>
           </mat-tab>
         </div>
+        <mat-tab label="Biography">
+          <p>
+            {{user.bio}}
+          </p>
+        </mat-tab>
       </mat-tab-group>
     </mat-card-content>
   </mat-card>

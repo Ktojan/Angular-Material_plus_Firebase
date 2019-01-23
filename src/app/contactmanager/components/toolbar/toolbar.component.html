@@ -5,4 +5,17 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>Contact manager</span>
+  <span class="example-spacer"></span>
+
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openAddContactDialog()">
+      <mat-icon>person_add</mat-icon> New contact
+    </button>
+    <button mat-menu-item (click)="openAboutDialog()">
+      <mat-icon>description</mat-icon> About this app
+    </button>
+  </mat-menu>
 </mat-toolbar>
