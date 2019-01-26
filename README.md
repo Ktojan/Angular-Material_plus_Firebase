@@ -15,13 +15,13 @@ Angular features:
 * angular-cli commands for generating all components
 
 Angular Material components and features:
-* <mat-toolbar> + <mat-menu>
-* <mat-sidenav> + <mat-nav-list>
-* <mat-table> + <mat-paginator> + mat-sort + filter
-* <mat-datepicker>
-* <mat-cart>
-* <mat-dialog>
-* <mat-icon>
+* mat-toolbar + mat-menu
+* mat-sidenav + mat-nav-list
+* mat-table + mat-paginator + mat-sort + filter
+* mat-datepicker
+* mat-cart
+* mat-dialog
+* mat-icon
 
 Plan for upgrading
 + Storing all data in Firebase
