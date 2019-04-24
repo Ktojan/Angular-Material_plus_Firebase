@@ -1,29 +1,29 @@
-<div *ngIf="!user">
-  <mat-spinner></mat-spinner>
-</div>
-<div *ngIf="user">
+
+  
   <mat-card>
-    <mat-card-header>
-      <div mat-card-avatar></div>  <!--TODO svgIcon="{{user.avatar}}"-->
-      <mat-card-title>
-        <h2>{{user.name}}</h2>
-      </mat-card-title>
-      <mat-card-subtitle>Birthday {{user.birthDate | date:'d LLLL'}}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-tab-group>
-        <div *ngIf="user.notes.length > 0">
-          <mat-tab label="Notes">
-            <app-notes [notes]="user.notes"></app-notes>
+    <div id="map" style="width:100%; height:90vh"></div> <!--todo-->
+    <!--
+      <mat-card-header>
+        <div mat-card-avatar></div>
+        <mat-card-title>
+          <h2>{{user.name}}</h2>
+        </mat-card-title>
+        <mat-card-subtitle>Birthday {{user.birthDate | date:'d LLLL'}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-tab-group>
+          <div *ngIf="user.notes.length > 0">
+            <mat-tab label="Notes">
+              <app-notes [notes]="user.notes"></app-notes>
+            </mat-tab>
+          </div>
+          <mat-tab label="Biography">
+            <p>
+              {{user.bio}}
+            </p>
           </mat-tab>
-        </div>
-        <mat-tab label="Biography">
-          <p>
-            {{user.bio}}
-          </p>
-        </mat-tab>
-      </mat-tab-group>
-    </mat-card-content>
-  </mat-card>
-</div>
+        </mat-tab-group>
+      </mat-card-content>-->
+    </mat-card>
+
 

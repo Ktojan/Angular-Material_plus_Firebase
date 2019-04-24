@@ -12,11 +12,14 @@ export class MainContentComponent implements OnInit {
 
     user: User;
 
-  constructor(private route: ActivatedRoute, private service: UserService) {
+    constructor(private route: ActivatedRoute,
+        private service: UserService) {
 
   }
 
-  ngOnInit() {
+    ngOnInit() {
+        console.dir(window.DG);
+
       this.route.params.subscribe(params => {
           let id = params['id'];
           if (!id) id = 1;
@@ -26,6 +29,13 @@ export class MainContentComponent implements OnInit {
               this.user = this.service.userById(id);
           })
       })
-  }
+
+      let map = window.DG.map('map', {
+          'center': [54.98, 82.89],
+          'zoom': 13
+      });
+      console.dir(map);
+    }
+
 
 }

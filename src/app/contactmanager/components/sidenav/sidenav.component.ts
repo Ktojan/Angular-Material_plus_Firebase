@@ -35,7 +35,6 @@ export class SidenavComponent implements OnInit {
 
       // TODO remove method
       this.users.subscribe(data => {
-          console.log(data);
          // if (data.length > 0) this.router.navigate(['/contactmanager', data[0].id]);
       })
 
