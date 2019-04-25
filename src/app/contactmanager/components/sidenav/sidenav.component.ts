@@ -3,7 +3,7 @@ import { Observable } from "rxjs";
 import { HttpClientModule } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { MatSidenav } from '@angular/material';
-import { UserService } from "../../services/user.service";
+import { MarkersService } from "../../services/markers.service";
 import { User } from "../../models/user";
 
 const SMALL_SCREEN_BREAKPOINT = 720;
@@ -17,23 +17,18 @@ export class SidenavComponent implements OnInit {
 
   private mediaMatcher: MediaQueryList = matchMedia(`(max-width: ${SMALL_SCREEN_BREAKPOINT}px)`);
 
-  users: any[];
+  groups: any[];
 
   constructor(
-      private userService: UserService,
+      private service: MarkersService,
       private router: Router) {
   } 
 
   @ViewChild(MatSidenav) sidenav: MatSidenav;
 
   ngOnInit() {
-      this.users = this.userService.users;
-
-      // TODO remove method
-      //this.users.subscribe(data => {
-         // if (data.length > 0) this.router.navigate(['/contactmanager', data[0].id]);
-      //})
-
+      this.groups = this.service.groups;
+     
       this.router.events.subscribe(() => {
           if (this.isScreenSmall()) {
               this.sidenav.close();
@@ -42,7 +37,7 @@ export class SidenavComponent implements OnInit {
   }
 
   toggleGroup(group) {
-      this.userService.refreshMap(group);
+      this.service.refreshMap(group);
   }
 
   isScreenSmall(): boolean {

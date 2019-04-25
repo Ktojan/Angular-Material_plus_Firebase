@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from "@angular/material/dialog";
 import { User } from "../../models/user";
 import { FormControl, Validators } from "@angular/forms";
-import { UserService } from "../../services/user.service";
+import { MarkersService } from "../../services/markers.service";
 
 @Component({
   selector: 'app-new-contact-dialog',
@@ -11,25 +11,24 @@ import { UserService } from "../../services/user.service";
 })
 export class NewContactDialogComponent implements OnInit {
 
-    user: User;
+    group: User;
 
     constructor(private dialogRef: MatDialogRef<NewContactDialogComponent>,
-                private userService: UserService) { }
+                private service: MarkersService) { }
 
     name = new FormControl('', [Validators.required]);
 
     getErrorMessage() {
-        return this.name.hasError('required') ? 'You must enter a name' : '';
+        return this.name.hasError('required') ? 'You must enter a name of group' : '';
     }
 
     ngOnInit() {
-        this.user = new User();      
+        this.group = new User();      
     }
 
     save() {
-        this.userService.addUser(this.user);
-        this.dialogRef.close(this.user);        
-        console.table(this.userService.users);
+        this.service.addGroup(this.group);
+        this.dialogRef.close(this.group);        
     }
 
     dismiss() {

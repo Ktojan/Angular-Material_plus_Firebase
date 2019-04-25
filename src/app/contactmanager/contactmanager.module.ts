@@ -11,8 +11,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 
-import { UserService } from "./services/user.service";
-import { NotesComponent } from './components/notes/notes.component';
+import { MarkersService } from "./services/markers.service";
 import { NewContactDialogComponent } from './components/new-contact-dialog/new-contact-dialog.component';
 import { AboutDialogComponent } from './components/about-dialog/about-dialog.component';
 
@@ -32,10 +31,9 @@ const routes: Routes = [
         ToolbarComponent,
         MainContentComponent,
         SidenavComponent,
-        NotesComponent,
         NewContactDialogComponent,
         AboutDialogComponent],
-  providers: [UserService],
+  providers: [MarkersService],
   imports: [
       CommonModule,
       MaterialModule,

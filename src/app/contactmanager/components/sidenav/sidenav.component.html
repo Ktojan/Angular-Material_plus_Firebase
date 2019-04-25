@@ -7,14 +7,15 @@
     <mat-toolbar color="primary">Groups of markers</mat-toolbar>
 
     <mat-list role="list">
-      <!--<input id="hide" type="button" value="hide" />
-      <input id="show" type="button" value="show" />-->
       <mat-nav-list>
-        <mat-list-item *ngFor="let user of users">
-          <a matLine (click)="toggleGroup(user.name)">
+        <mat-list-item *ngFor="let group of groups">
+          <mat-slide-toggle [checked]="true"
+                            (click)="toggleGroup(group.name)">
+          {{ group.name }} ({{ group.coords.length }})</mat-slide-toggle>
+          <!--<a matLine (click)="toggleGroup(group.name)">
             <mat-icon>account_circle</mat-icon>  
-            {{ user.name }}
-          </a>
+            {{ group.name }} ({{ group.coords.length }})
+          </a>-->
         </mat-list-item>
       </mat-nav-list>
     </mat-list>
