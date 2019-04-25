@@ -4,7 +4,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { MatSidenav } from '@angular/material';
 import { MarkersService } from "../../services/markers.service";
-import { User } from "../../models/user";
+import { Group } from "../../models/group";
 
 const SMALL_SCREEN_BREAKPOINT = 720;
 

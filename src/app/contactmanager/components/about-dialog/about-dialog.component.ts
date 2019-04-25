@@ -3,15 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-about-dialog',
   template: `
-    <p>
-      This is an Angular 7 simple app built on Angular Material components with the help of Aiden Towfeek's course. 
-    </p>
-    <p>It's a simple app with short contact-list where you can look through contacts info and also notes (displayed
-    with a Material Table with filtering, sorting, pagination) and add new to local storage.</p>
-
-    <p><a href="https://github.com/Ktojan/Angular-Material_plus_Firebase">code on Github</a></p>
-  `,
-  styles: []
+    <p>This is an Angular-app with responsive design implemented with some Angular Material components. 
+    The main feature is a buit-in interactve map with this 2GIS API <a href="http://api.2gis.ru/doc/maps">http://api.2gis.ru/doc/maps</a> completed with functional of adding
+markers on the map and saving them to groups.</p>
+    <p>You can add new markers with RIGHT-clicks and then save them to new group with a button in ... menu</p>    
+  `
 })
 export class AboutDialogComponent implements OnInit {
 

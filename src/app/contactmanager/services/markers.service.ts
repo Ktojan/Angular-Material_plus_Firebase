@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { BehaviorSubject, Observable } from "rxjs";
-import { User } from "../models/user";
-import { resolve } from 'q';
+import { Group } from "../models/group";
 
 @Injectable({
   providedIn: 'root'
@@ -49,11 +47,11 @@ export class MarkersService {
     }
 
   
-    addGroup(user: User) {
-        user.id = this.groups.length + 1;
-        user.coords = this.currentMarkers;
-        user.displayed = true;
-        this.groups.push(user);
+    addGroup(group: Group) {
+        group.id = this.groups.length + 1;
+        group.coords = this.currentMarkers;
+        group.displayed = true;
+        this.groups.push(group);
         this.currentMarkers = [];
     }
 
@@ -74,13 +72,12 @@ export class MarkersService {
     }
 
     //    const groupsUrl = "https://";
-
-    //    this.http.post<User[]>(groupsUrl, user)
+    //    this.http.post<group[]>(groupsUrl, group)
     //        .subscribe(data => {
     //            console.log(data)
     //        },
     //        error => {
-    //            console.log("Failed to post user")
+    //            console.log("Failed to post group")
     //        })
     //}
 

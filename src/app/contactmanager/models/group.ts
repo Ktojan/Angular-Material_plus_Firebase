@@ -1,4 +1,4 @@
-export class User {
+export class Group {
     id: number;
     name: string;
     displayed: boolean;

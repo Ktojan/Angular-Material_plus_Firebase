@@ -4,7 +4,7 @@
           (click)="toggleSidenav.emit()">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>MAP-app with markers feature. Exclusively for DIGIS :-)</span>
+  <span>2Gis-map with markers feature</span>
   <span class="example-spacer"></span>
 
   <button mat-button [matMenuTriggerFor]="menu">
@@ -12,10 +12,13 @@
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="openAddContactDialog()">
-      <mat-icon>person_add</mat-icon> Save markers to a new group
+      <mat-icon>list</mat-icon> Save markers to a new group
     </button>
     <button mat-menu-item (click)="openAboutDialog()">
       <mat-icon>description</mat-icon> About this app
+    </button>
+    <button mat-menu-item>
+      <mat-icon>code</mat-icon><a target="_blank" href="https://github.com/Ktojan/Angular-Map-with-markers-Digis">code on Github</a>
     </button>
   </mat-menu>
 </mat-toolbar>

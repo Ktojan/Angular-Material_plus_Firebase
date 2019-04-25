@@ -20,7 +20,8 @@
   <mat-sidenav-content>
     <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
     <div class="wrapper">
-      <router-outlet></router-outlet>  <!--inserts MainContentComponent-->
+      <app-main-content></app-main-content>
+      <!--<router-outlet></router-outlet> -->
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

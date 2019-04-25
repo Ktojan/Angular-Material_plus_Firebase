@@ -1,14 +1,10 @@
-<h2 mat-dialog-title>Save markers as new group</h2>
+<h2 mat-dialog-title>Save markers as a new group</h2>
 <mat-dialog-content>
   <div class="example-container">
     <mat-form-field>
       <input matInput placeholder="Name"
-             [(ngModel)]="group.name"
-             [formControl]="name"
-             required>
-      <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+             [(ngModel)]="group.name">
     </mat-form-field>
-
    
   </div>
 </mat-dialog-content>
