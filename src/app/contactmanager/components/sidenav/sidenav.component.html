@@ -4,10 +4,13 @@
                [mode]="isScreenSmall() ? 'over' : 'side'"
                class="app-sidenav mat-elevation-z10"
                [opened]="!isScreenSmall()">
-    <mat-toolbar color="primary">Contacts</mat-toolbar>
+    <mat-toolbar color="primary">Groups of markers</mat-toolbar>
+
     <mat-list role="list">
+      <input id="hide" type="button" value="hide" />
+      <input id="show" type="button" value="show" />
       <mat-nav-list>
-        <mat-list-item *ngFor="let user of users | async">
+        <mat-list-item *ngFor="let user of users">
           <a matLine [routerLink]="['/contactmanager', user.id]">
             <mat-icon>account_circle</mat-icon>  
             {{ user.name }}
@@ -15,6 +18,7 @@
         </mat-list-item>
       </mat-nav-list>
     </mat-list>
+
   </mat-sidenav>
 
   <mat-sidenav-content>

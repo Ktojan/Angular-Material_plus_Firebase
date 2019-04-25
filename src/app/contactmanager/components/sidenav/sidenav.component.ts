@@ -17,7 +17,8 @@ export class SidenavComponent implements OnInit {
 
   private mediaMatcher: MediaQueryList = matchMedia(`(max-width: ${SMALL_SCREEN_BREAKPOINT}px)`);
 
-  users: Observable<User[]>;
+ // users: Observable<User[]>;
+  users: any[];
 
   constructor(
       zone: NgZone,
@@ -31,12 +32,11 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit() {
       this.users = this.userService.users;
-      this.userService.loadAll();
 
       // TODO remove method
-      this.users.subscribe(data => {
+      //this.users.subscribe(data => {
          // if (data.length > 0) this.router.navigate(['/contactmanager', data[0].id]);
-      })
+      //})
 
       this.router.events.subscribe(() => {
           if (this.isScreenSmall()) {

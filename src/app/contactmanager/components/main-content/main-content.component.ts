@@ -25,15 +25,15 @@ export class MainContentComponent implements OnInit {
             'zoom': 13
         });
 
-      this.route.params.subscribe(params => {
-          let id = params['id'];
-          if (!id) id = 1;
-          this.user = null;
-          this.service.users.subscribe(users => {
-              if (users.length == 0) return;
-              this.user = this.service.userById(id);
-          })
-      })
+      //this.route.params.subscribe(params => {
+      //    let id = params['id'];
+      //    if (!id) id = 1;
+      //    this.user = null;
+      //    this.service.users.subscribe(users => {
+      //        if (users.length == 0) return;
+      //        this.user = this.service.userById(id);
+      //    })
+      //})
       var myIcon = DG.icon({
           iconUrl: '../../assets/marker_image.png',
           //iconRetinaUrl: 'my-icon@2x.png',
@@ -50,8 +50,8 @@ export class MainContentComponent implements OnInit {
       
         //Adding markers with rigth-mouse click
       map.on('contextmenu', function(e) {
-          console.log(e);
           DG.marker([e.latlng.lat, e.latlng.lng]).addTo(this).bindPopup('contextmenu');
+          console.log(this._layers);
       });
 
 

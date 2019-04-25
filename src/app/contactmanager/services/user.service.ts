@@ -9,19 +9,25 @@ import { resolve } from 'q';
 })
 export class UserService {
 
-    private _users: BehaviorSubject<User[]>;
 
-    private dataStore: {
-        users: User[]
-    }
+    private dataStore; //: {
+    //    users: [{ id: 1, name: "Stadiums", notes: [46.477225, 30.75304] }];
+    //}
 
     constructor(private http: HttpClient) {
-        this.dataStore = { users: [] };
-        this._users = new BehaviorSubject<User[]>([]);
+        this.dataStore = {
+            users: [
+                {
+                    id: 1, name: "Stadiums", notes: [46.477225, 30.75304]
+                },
+                {
+                    id: 2, name: "Chemisries", notes: [46.477225, 30.75304]
+                }]
+        };
     }
 
-    get users(): Observable<User[]> {
-        return this._users.asObservable();
+    get users() {
+        return this.dataStore.users;
     }
 
     userById(id: number) {
@@ -29,25 +35,28 @@ export class UserService {
     }
 
     loadAll() {
-        const usersUrl = "https://angular-material-api.azurewebsites.net/users";
+        //const usersUrl = "https://angular-material-api.azurewebsites.net/users";
 
-        return this.http.get<User[]>(usersUrl)
-            .subscribe(data => {
-                this.dataStore.users = data;
-                this._users.next(Object.assign({}, this.dataStore).users)             
-            },
-            error => {
-                console.log("Failed to fetch users")
-            })
+        //return this.http.get<User[]>(usersUrl)
+        //    .subscribe(data => {
+        //        this.dataStore.users = data;
+        //        this._users.next(Object.assign({}, this.dataStore).users)             
+        //    },
+        //    error => {
+        //        console.log("Failed to fetch users")
+        //    })
+        return this.dataStore.users;
     }
 
-    addUser(user: User): Promise<User> {
-        return new Promise((resolver, reject) => {
-            user.id = this.dataStore.users.length + 1;
-            this.dataStore.users.push(user);
-            this._users.next(Object.assign({}, this.dataStore).users);
-            resolver(user);
-        }); 
+    addUser(user: User) {
+        user.id = this.dataStore.users.length + 1;
+        this.dataStore.users.push(user);
+        //return new Promise((resolver, reject) => {
+        //    user.id = this.dataStore.users.length + 1;
+        //    this.dataStore.users.push(user);
+        //    this._users.next(Object.assign({}, this.dataStore).users);
+        //    resolver(user);
+        //}); 
     }
     //    const usersUrl = "https://angular-material-api.azurewebsites.net/users";
 
