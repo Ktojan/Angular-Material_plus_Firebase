@@ -29,9 +29,6 @@ export class MainContentComponent implements OnInit {
           this.service.currentMarkers.push({ 'lat': e.latlng.lat, 'lon': e.latlng.lng });
           console.dir(this.service.currentMarkers);
       });
-
-        
-
     }
     
 

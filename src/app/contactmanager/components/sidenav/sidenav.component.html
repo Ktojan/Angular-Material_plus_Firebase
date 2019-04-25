@@ -12,14 +12,9 @@
           <mat-slide-toggle [checked]="true"
                             (click)="toggleGroup(group.name)">
           {{ group.name }} ({{ group.coords.length }})</mat-slide-toggle>
-          <!--<a matLine (click)="toggleGroup(group.name)">
-            <mat-icon>account_circle</mat-icon>  
-            {{ group.name }} ({{ group.coords.length }})
-          </a>-->
         </mat-list-item>
       </mat-nav-list>
     </mat-list>
-
   </mat-sidenav>
 
   <mat-sidenav-content>

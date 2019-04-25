@@ -17,13 +17,8 @@ import { AboutDialogComponent } from './components/about-dialog/about-dialog.com
 
 const routes: Routes = [
     {
-        path: '', component: ContactmanagerAppComponent,
-        children: [
-            { path: ':id', component: MainContentComponent },
-            { path: '', component: MainContentComponent}
-        ]
-    },
-    { path: '**', redirectTo: '' }
+        path: '', component: MainContentComponent,
+    }
 ];
 @NgModule({
     declarations: [
@@ -38,8 +33,8 @@ const routes: Routes = [
       CommonModule,
       MaterialModule,
       FlexLayoutModule,
-      ReactiveFormsModule,
-      FormsModule,
+      //ReactiveFormsModule,
+      //FormsModule,
       HttpClientModule,
       RouterModule.forChild(routes)
   ],
