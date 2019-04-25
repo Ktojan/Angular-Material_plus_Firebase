@@ -17,16 +17,12 @@ export class SidenavComponent implements OnInit {
 
   private mediaMatcher: MediaQueryList = matchMedia(`(max-width: ${SMALL_SCREEN_BREAKPOINT}px)`);
 
- // users: Observable<User[]>;
   users: any[];
 
   constructor(
-      zone: NgZone,
       private userService: UserService,
       private router: Router) {
-      //this.mediaMatcher.addListener(mql =>
-      //    zone.run(() => this.mediaMatcher = mql))
-  } //TO LEARN
+  } 
 
   @ViewChild(MatSidenav) sidenav: MatSidenav;
 
@@ -43,6 +39,10 @@ export class SidenavComponent implements OnInit {
               this.sidenav.close();
           }
       })
+  }
+
+  toggleGroup(group) {
+      this.userService.refreshMap(group);
   }
 
   isScreenSmall(): boolean {

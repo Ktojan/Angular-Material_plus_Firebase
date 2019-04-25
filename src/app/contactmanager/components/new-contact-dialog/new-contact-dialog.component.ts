@@ -17,7 +17,6 @@ export class NewContactDialogComponent implements OnInit {
                 private userService: UserService) { }
 
     name = new FormControl('', [Validators.required]);
-    startDate = new Date(1990, 0, 1);
 
     getErrorMessage() {
         return this.name.hasError('required') ? 'You must enter a name' : '';
@@ -28,9 +27,8 @@ export class NewContactDialogComponent implements OnInit {
     }
 
     save() {
-        this.userService.addUser(this.user).then(user => {
-            this.dialogRef.close(this.user);
-        });
+        this.userService.addUser(this.user);
+        this.dialogRef.close(this.user);        
         console.table(this.userService.users);
     }
 

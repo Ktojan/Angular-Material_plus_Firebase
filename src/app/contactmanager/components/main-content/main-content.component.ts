@@ -24,6 +24,7 @@ export class MainContentComponent implements OnInit {
             'center': [46.473025, 30.74104], // Географическая точка с определенной широтой и долготой.
             'zoom': 13
         });
+        this.service.map = map;
 
       //this.route.params.subscribe(params => {
       //    let id = params['id'];
@@ -49,9 +50,10 @@ export class MainContentComponent implements OnInit {
 
       
         //Adding markers with rigth-mouse click
-      map.on('contextmenu', function(e) {
-          DG.marker([e.latlng.lat, e.latlng.lng]).addTo(this).bindPopup('contextmenu');
-          console.log(this._layers);
+      map.on('contextmenu', (e) => {
+          DG.marker([e.latlng.lat, e.latlng.lng]).addTo(map).bindPopup('contextmenu');
+          this.service.currentMarkers.push([ e.latlng.lat, e.latlng.lng ]);
+          console.dir(this.service.currentMarkers);
       });
 
 
@@ -70,9 +72,8 @@ export class MainContentComponent implements OnInit {
       let marker1 = DG.marker([46.473025, 30.73004]).addTo(markers);
       let marker2 = DG.marker([46.473025, 30.74104]).addTo(markers);
       let marker3 = DG.marker([46.477225, 30.75304]).addTo(markers);
-
-            document.getElementById('hide').onclick = hideMarkers;
-            document.getElementById('show').onclick = showMarkers;
+      console.dir(markers);
+            DG.marker(coordinates).addTo(markers);
 
             function showMarkers() {
                 markers.addTo(map);

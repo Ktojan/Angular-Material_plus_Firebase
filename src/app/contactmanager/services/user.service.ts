@@ -10,18 +10,31 @@ import { resolve } from 'q';
 export class UserService {
 
 
-    private dataStore; //: {
-    //    users: [{ id: 1, name: "Stadiums", notes: [46.477225, 30.75304] }];
-    //}
+    private dataStore;
+    public map;
+    public currentMarkers = [];
 
     constructor(private http: HttpClient) {
         this.dataStore = {
             users: [
                 {
-                    id: 1, name: "Stadiums", notes: [46.477225, 30.75304]
+                    id: 1, name: "Stadiums", displayed: false, notes: [{
+                        'lat': 46.480280090739974, 'lon': 30.755453109741214
+                    }, {
+                            'lat': 46.46845813229578, 'lon': 30.74854373931885
+                        }]
                 },
                 {
-                    id: 2, name: "Chemisries", notes: [46.477225, 30.75304]
+                    id: 2, name: "Girls", displayed: false, notes: [{
+                        'lat': 46.47150992121362, 'lon': 30.738694667816166
+                    }, {
+                        'lat': 46.47996979715261, 'lon': 30.73859810829163
+                    }]
+                },
+                {
+                    id: 3, name: "Chemisries", displayed: false, notes: [{
+                        'lat': 46.45092735308209, 'lon': 30.72532653808594
+                    }]
                 }]
         };
     }
@@ -30,8 +43,8 @@ export class UserService {
         return this.dataStore.users;
     }
 
-    userById(id: number) {
-        return this.dataStore.users.find(user => user.id == id);
+    userByName(name: string) {
+        return this.dataStore.users.find(user => user.name == name);
     }
 
     loadAll() {
@@ -50,15 +63,35 @@ export class UserService {
 
     addUser(user: User) {
         user.id = this.dataStore.users.length + 1;
+        user.notes = this.currentMarkers;
+        user.displayed = true;
         this.dataStore.users.push(user);
-        //return new Promise((resolver, reject) => {
-        //    user.id = this.dataStore.users.length + 1;
-        //    this.dataStore.users.push(user);
-        //    this._users.next(Object.assign({}, this.dataStore).users);
-        //    resolver(user);
-        //}); 
     }
-    //    const usersUrl = "https://angular-material-api.azurewebsites.net/users";
+
+    refreshMap(group) {
+        
+        //curGroup.displayed = !curGroup.displayed
+        let user = this.userByName(group);
+        let markers = user.notes;
+
+        console.dir(user);
+        markers.forEach(el => {
+            if (user.displayed) {
+                console.log(1, user);
+                window.DG.marker([el.lat, el.lon]).remove();
+            }
+            else {
+                console.log(2, user);
+                window.DG.marker([el.lat, el.lon]).addTo(this.map);
+            }
+        });
+        user.displayed = !user.displayed;
+        console.dir(user);
+
+    }
+
+
+    //    const usersUrl = "https://";
 
     //    this.http.post<User[]>(usersUrl, user)
     //        .subscribe(data => {
